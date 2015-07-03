@@ -37,7 +37,6 @@ namespace :spec do
   RSpec::Core::RakeTask.new(:object) do |t|
     t.pattern = 'spec/*_spec.rb'
     # t.libs << 'lib' << 'spec'
-    t.rcov = false
     t.rspec_opts = ['--options', 'spec/spec.opts']
     #t.rcov_dir = 'coverage'
     #t.rcov_opts = ['--exclude', "kernel,load-diff-lcs\.rb,instance_exec\.rb,lib/spec.rb,lib/spec/runner.rb,^spec/*,bin/spec,examples,/gems,/Library/Ruby,\.autotest,#{ENV['GEM_HOME']}"]
@@ -47,13 +46,11 @@ namespace :spec do
     t.pattern = 'spec/active_record/*_spec.rb'
     # t.libs << 'lib' << 'spec/active_record'
     t.rspec_opts = ['--options', 'spec/spec.opts']    
-    t.rcov = false
   end
   RSpec::Core::RakeTask.new(:forms) do |t|
     t.pattern = 'spec/rails/spec/integrations/*_spec.rb'
     # t.libs << 'lib' << 'spec/rails/spec'
     t.rspec_opts = ['--options', 'spec/spec.opts']    
-    t.rcov = false
   end
   desc "Run all specs"
   task :all=>[:object, :ar, :forms] 
